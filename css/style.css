@@ -216,3 +216,9 @@
 .testimonial-carousel .owl-dot.active {
   background: var(--primary);
 }
+
+#img1, #img2, #img3 {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+}
