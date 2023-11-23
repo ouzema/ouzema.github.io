@@ -93,3 +93,37 @@
     });
 })(jQuery);
 
+// Your existing JavaScript code here
+
+function openChat() {
+    document.getElementById('chat-container').style.display = 'block';
+}
+
+function closeChat() {
+    document.getElementById('chat-container').style.display = 'none';
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    const chatMessages = document.getElementById('chat-messages');
+    const userInput = document.getElementById('user-input');
+
+    function sendMessage() {
+        const userMessage = userInput.value.trim();
+        if (userMessage !== '') {
+            appendMessage('user', userMessage);
+            // Add logic to send the user message to your server and get the AI's response
+            // Once you have the AI's response, call appendMessage('assistant', aiResponse);
+            userInput.value = '';
+        }
+    }
+
+    function appendMessage(role, content) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `message ${role}`;
+        messageDiv.innerHTML = `<strong>${role.charAt(0).toUpperCase() + role.slice(1)}:</strong> ${content}`;
+        chatMessages.appendChild(messageDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    window.sendMessage = sendMessage;
+});
