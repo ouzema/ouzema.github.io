@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <!-- Background -->
+  <rect width="400" height="400" rx="24" fill="#F0FDF4"/>
+  <!-- Rising bar chart -->
+  <rect x="70" y="260" width="44" height="60" rx="8" fill="#059669" opacity="0.25"/>
+  <rect x="130" y="220" width="44" height="100" rx="8" fill="#059669" opacity="0.4"/>
+  <rect x="190" y="170" width="44" height="150" rx="8" fill="#059669" opacity="0.55"/>
+  <rect x="250" y="120" width="44" height="200" rx="8" fill="#059669" opacity="0.75"/>
+  <!-- Baseline -->
+  <rect x="50" y="320" width="264" height="3" rx="1.5" fill="#059669" opacity="0.15"/>
+  <!-- Trend arrow -->
+  <path d="M90 250 L270 110" stroke="#059669" stroke-width="2.5" stroke-dasharray="6 4" opacity="0.3" stroke-linecap="round"/>
+  <!-- Coin / dollar circle -->
+  <circle cx="330" cy="80" r="36" fill="#059669" opacity="0.2"/>
+  <circle cx="330" cy="80" r="26" fill="#059669" opacity="0.4"/>
+  <!-- Dollar sign paths (no text) -->
+  <path d="M330 62 L330 98" stroke="#F0FDF4" stroke-width="2.5" stroke-linecap="round" opacity="0.8"/>
+  <path d="M320 72 C320 66 340 64 340 72 C340 80 318 78 318 88 C318 96 340 94 340 88" fill="none" stroke="#F0FDF4" stroke-width="2.5" stroke-linecap="round" opacity="0.8"/>
+</svg>

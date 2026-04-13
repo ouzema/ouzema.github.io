@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <!-- Background -->
+  <rect width="400" height="400" rx="24" fill="#FAF5FF"/>
+  <!-- Grid lines -->
+  <line x1="60" y1="120" x2="340" y2="120" stroke="#7C3AED" stroke-width="1" opacity="0.08"/>
+  <line x1="60" y1="180" x2="340" y2="180" stroke="#7C3AED" stroke-width="1" opacity="0.08"/>
+  <line x1="60" y1="240" x2="340" y2="240" stroke="#7C3AED" stroke-width="1" opacity="0.08"/>
+  <line x1="60" y1="300" x2="340" y2="300" stroke="#7C3AED" stroke-width="1" opacity="0.08"/>
+  <!-- Sine wave fill -->
+  <path d="M60 200 C100 120 140 120 180 200 C220 280 260 280 300 200 C320 160 340 150 340 170 L340 320 L60 320 Z" fill="#7C3AED" opacity="0.08"/>
+  <!-- Sine wave line -->
+  <path d="M60 200 C100 120 140 120 180 200 C220 280 260 280 300 200 C320 160 340 150 340 170" fill="none" stroke="#7C3AED" stroke-width="3" stroke-linecap="round" opacity="0.6"/>
+  <!-- Data points -->
+  <circle cx="60" cy="200" r="5" fill="#7C3AED" opacity="0.7"/>
+  <circle cx="120" cy="145" r="5" fill="#7C3AED" opacity="0.7"/>
+  <circle cx="180" cy="200" r="5" fill="#7C3AED" opacity="0.7"/>
+  <circle cx="240" cy="255" r="5" fill="#7C3AED" opacity="0.7"/>
+  <circle cx="300" cy="200" r="5" fill="#7C3AED" opacity="0.7"/>
+  <circle cx="340" cy="170" r="5" fill="#7C3AED" opacity="0.7"/>
+  <!-- Axes -->
+  <line x1="60" y1="80" x2="60" y2="320" stroke="#7C3AED" stroke-width="2" opacity="0.2" stroke-linecap="round"/>
+  <line x1="60" y1="320" x2="350" y2="320" stroke="#7C3AED" stroke-width="2" opacity="0.2" stroke-linecap="round"/>
+</svg>

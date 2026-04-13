@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <!-- Background -->
+  <rect width="400" height="400" rx="24" fill="#EFF6FF"/>
+  <!-- Card shape -->
+  <rect x="70" y="120" width="260" height="160" rx="20" fill="#2563EB" opacity="0.15"/>
+  <rect x="70" y="120" width="260" height="160" rx="20" fill="none" stroke="#2563EB" stroke-width="2" opacity="0.3"/>
+  <!-- Card chip -->
+  <rect x="100" y="155" width="40" height="30" rx="6" fill="#2563EB" opacity="0.3"/>
+  <rect x="100" y="168" width="40" height="3" rx="1" fill="#2563EB" opacity="0.15"/>
+  <rect x="118" y="155" width="3" height="30" rx="1" fill="#2563EB" opacity="0.15"/>
+  <!-- Card lines (number placeholder) -->
+  <rect x="100" y="210" width="80" height="6" rx="3" fill="#2563EB" opacity="0.2"/>
+  <rect x="100" y="225" width="50" height="6" rx="3" fill="#2563EB" opacity="0.15"/>
+  <!-- Mini chart on card -->
+  <polyline points="200,240 220,220 240,230 260,200 280,210 300,185" fill="none" stroke="#7C3AED" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
+  <!-- Chart dots -->
+  <circle cx="200" cy="240" r="3" fill="#7C3AED" opacity="0.6"/>
+  <circle cx="240" cy="230" r="3" fill="#7C3AED" opacity="0.6"/>
+  <circle cx="300" cy="185" r="3" fill="#7C3AED" opacity="0.6"/>
+  <!-- Wallet flap -->
+  <path d="M280 120 Q330 100 330 140 L330 160 Q330 175 315 175 L280 175 L280 120Z" fill="#2563EB" opacity="0.1"/>
+  <circle cx="300" cy="148" r="8" fill="#2563EB" opacity="0.25"/>
+</svg>

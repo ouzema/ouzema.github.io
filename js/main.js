@@ -68,6 +68,8 @@
 
     // ── Portfolio Isotope filter ──
     var $container = $('.portfolio-container');
+    var expanded = false;
+
     if ($container.length) {
         var portfolioIsotope = $container.isotope({
             itemSelector: '.portfolio-item',
@@ -78,9 +80,35 @@
         $('#portfolio-flters li').on('click', function () {
             $('#portfolio-flters li').removeClass('active');
             $(this).addClass('active');
+
+            // Show all items when filtering by category
+            if (!expanded) {
+                $('.portfolio-extra').css('display', '');
+                expanded = true;
+                $('#showMoreProjects').hide();
+                $container.isotope('reloadItems');
+            }
             portfolioIsotope.isotope({ filter: $(this).data('filter') });
         });
     }
+
+    // ── Show more / less projects ──
+    $('#showMoreProjects').on('click', function () {
+        if (!expanded) {
+            $('.portfolio-extra').css('display', '');
+            expanded = true;
+            $(this).html('<i class="fas fa-chevron-up me-2"></i>Show Less');
+        } else {
+            $('.portfolio-extra').css('display', 'none');
+            expanded = false;
+            $(this).html('<i class="fas fa-chevron-down me-2"></i>Show More Projects');
+            // Reset filter to All
+            $('#portfolio-flters li').removeClass('active').first().addClass('active');
+        }
+        if ($container.length) {
+            $container.isotope('reloadItems').isotope({ filter: expanded ? '*' : '*' });
+        }
+    });
 
     // ── Dark Mode ──
     $(document).ready(function () {
@@ -117,6 +145,19 @@
             }
         });
     });
+
+    // ── Resume modal: lazy-load PDF ──
+    var resumeModal = document.getElementById('resumeModal');
+    if (resumeModal) {
+        resumeModal.addEventListener('show.bs.modal', function () {
+            var iframe = resumeModal.querySelector('.resume-iframe');
+            var pdfSrc = iframe.getAttribute('data-src');
+            if (iframe && pdfSrc) {
+                iframe.src = pdfSrc;
+                iframe.removeAttribute('data-src');
+            }
+        });
+    }
 
 })(jQuery);
 

@@ -76,9 +76,9 @@
                         </div>
 
                         <div class="profile-buttons">
-                            <a href="https://drive.google.com/file/d/1U11JlWkDvAoRlbM-Jhmy8xSaRQ6r_T9j/view?usp=sharing" target="_blank" class="btn btn-primary">
-                                <i class="fas fa-download"></i> Download CV
-                            </a>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#resumeModal">
+                                <i class="fas fa-eye"></i> View CV
+                            </button>
                             <a href="#contact" class="btn btn-secondary btn-scroll">
                                 <i class="fas fa-envelope"></i> Contact Me
                             </a>
@@ -135,8 +135,8 @@
                             <div class="skill-category">
                                 <h6>Languages & Databases</h6>
                                 <div class="skill-chips">
-                                    <span class="skill-chip highlight"><i class="devicon-python-plain"></i> Python</span>
-                                    <span class="skill-chip highlight"><i class="devicon-azuresqldatabase-plain"></i> SQL</span>
+                                    <span class="skill-chip"><i class="devicon-python-plain"></i> Python</span>
+                                    <span class="skill-chip"><i class="devicon-azuresqldatabase-plain"></i> SQL</span>
                                     <span class="skill-chip"><i class="devicon-r-plain"></i> R</span>
                                     <span class="skill-chip"><i class="devicon-javascript-plain"></i> JavaScript</span>
                                     <span class="skill-chip"><i class="devicon-postgresql-plain"></i> PostgreSQL</span>
@@ -147,10 +147,10 @@
                             <div class="skill-category">
                                 <h6>Machine Learning & AI</h6>
                                 <div class="skill-chips">
-                                    <span class="skill-chip highlight"><i class="devicon-pytorch-original"></i> PyTorch</span>
-                                    <span class="skill-chip highlight"><i class="fas fa-brain"></i> Deep Learning</span>
-                                    <span class="skill-chip highlight"><i class="fas fa-eye"></i> Computer Vision</span>
-                                    <span class="skill-chip highlight"><i class="fas fa-language"></i> NLP</span>
+                                    <span class="skill-chip"><i class="devicon-pytorch-original"></i> PyTorch</span>
+                                    <span class="skill-chip"><i class="fas fa-brain"></i> Deep Learning</span>
+                                    <span class="skill-chip"><i class="fas fa-eye"></i> Computer Vision</span>
+                                    <span class="skill-chip"><i class="fas fa-language"></i> NLP</span>
                                     <span class="skill-chip"><i class="fas fa-robot"></i> LLMs</span>
                                     <span class="skill-chip"><i class="fas fa-project-diagram"></i> Multi-Agent Systems</span>
                                     <span class="skill-chip"><i class="devicon-scikitlearn-plain"></i> Scikit-learn</span>
@@ -315,54 +315,74 @@
                         <h2 class="title">Projects</h2>
                         <ul class="list-inline" id="portfolio-flters">
                             <li class="active" data-filter="*">All</li>
-                            <li data-filter=".first">ML</li>
-                            <li data-filter=".second">Mobile</li>
-                            <li data-filter=".third">Big Data</li>
-                            <li data-filter=".fourth">Computer Vision</li>
-                            <li data-filter=".fifth">NLP</li>
+                            <li data-filter=".cat-ai">AI & LLMs</li>
+                            <li data-filter=".cat-ml">ML & Analytics</li>
+                            <li data-filter=".cat-cv">Computer Vision</li>
+                            <li data-filter=".cat-nlp">NLP</li>
+                            <li data-filter=".cat-app">Apps</li>
                         </ul>
+
+                        <!-- Highlighted projects (always visible) -->
                         <div class="row portfolio-container">
-                            <div class="col-md-6 portfolio-item first">
+                            <div class="col-md-6 portfolio-item cat-ai">
+                                <div class="position-relative overflow-hidden">
+                                    <a href="https://github.com/ouzema/NYOS-APR" target="_blank">
+                                        <img class="img-fluid" src="img/pharma-ai.svg" alt="NYOS APR - Pharma AI Analytics">
+                                    </a>
+                                </div>
+                                <p class="text-center">NYOS APR — Pharma AI Analytics</p>
+                            </div>
+                            <div class="col-md-6 portfolio-item cat-ai">
+                                <div class="position-relative overflow-hidden">
+                                    <a href="https://github.com/ouzema/LLM-OPS" target="_blank">
+                                        <img class="img-fluid" src="img/llmops.svg" alt="LLMOps - Phi-3 Fine-tuning Pipeline">
+                                    </a>
+                                </div>
+                                <p class="text-center">LLMOps — Phi-3 Fine-tuning Pipeline</p>
+                            </div>
+
+                            <!-- More projects (hidden by default) -->
+                            <div class="col-md-6 portfolio-item cat-ml portfolio-extra" style="display:none;">
                                 <div class="position-relative overflow-hidden">
                                     <a href="https://github.com/ouzema/Adule-Income-Project" target="_blank">
-                                        <img class="img-fluid" src="img/stat.svg" alt="Adult Income Prediction">
+                                        <img class="img-fluid" src="img/income.svg" alt="Adult Income Prediction">
                                     </a>
                                 </div>
                                 <p class="text-center">Adult Income Prediction</p>
                             </div>
-                            <div class="col-md-6 portfolio-item first">
+                            <div class="col-md-6 portfolio-item cat-ml portfolio-extra" style="display:none;">
                                 <div class="position-relative overflow-hidden">
                                     <a href="https://github.com/ouzema/Smart-Expanse-Management-System" target="_blank">
-                                        <img class="img-fluid" src="img/manage.svg" alt="Smart Expense Management System">
+                                        <img class="img-fluid" src="img/expense.svg" alt="Smart Expense Management">
                                     </a>
                                 </div>
                                 <p class="text-center">Smart Expense Management</p>
                             </div>
-                            <div class="col-md-6 portfolio-item first">
+                            <div class="col-md-6 portfolio-item cat-ml portfolio-extra" style="display:none;">
                                 <div class="position-relative overflow-hidden">
                                     <a href="https://github.com/ouzema/Time_Series_Project" target="_blank">
-                                        <img class="img-fluid" src="img/predd.svg" alt="Time Series Analysis">
+                                        <img class="img-fluid" src="img/timeseries.svg" alt="Time Series Analysis">
                                     </a>
                                 </div>
                                 <p class="text-center">Time Series Analysis</p>
                             </div>
-                            <div class="col-md-6 portfolio-item second">
+                            <div class="col-md-6 portfolio-item cat-app portfolio-extra" style="display:none;">
                                 <div class="position-relative overflow-hidden">
                                     <a href="https://github.com/ouzema/Biblio" target="_blank">
-                                        <img class="img-fluid" src="img/app.svg" alt="Interactive Mobile Application">
+                                        <img class="img-fluid" src="img/mobile-app.svg" alt="Interactive Mobile App">
                                     </a>
                                 </div>
                                 <p class="text-center">Interactive Mobile App</p>
                             </div>
-                            <div class="col-md-6 portfolio-item third">
+                            <div class="col-md-6 portfolio-item cat-nlp portfolio-extra" style="display:none;">
                                 <div class="position-relative overflow-hidden">
                                     <a href="https://github.com/ouzema/SPAM_DETECTION" target="_blank">
-                                        <img class="img-fluid" src="img/spam.svg" alt="Spam Detection">
+                                        <img class="img-fluid" src="img/spam-detect.svg" alt="Spam Detection">
                                     </a>
                                 </div>
                                 <p class="text-center">Spam Detection</p>
                             </div>
-                            <div class="col-md-6 portfolio-item fourth">
+                            <div class="col-md-6 portfolio-item cat-cv portfolio-extra" style="display:none;">
                                 <div class="position-relative overflow-hidden">
                                     <a href="https://github.com/ouzema/GAN" target="_blank">
                                         <img class="img-fluid" src="img/gan.svg" alt="GAN Transform">
@@ -370,22 +390,28 @@
                                 </div>
                                 <p class="text-center">GAN Transform</p>
                             </div>
-                            <div class="col-md-6 portfolio-item fourth">
+                            <div class="col-md-6 portfolio-item cat-cv portfolio-extra" style="display:none;">
                                 <div class="position-relative overflow-hidden">
                                     <a href="https://github.com/ouzema/U2-NET" target="_blank">
-                                        <img class="img-fluid" src="img/sketch.svg" alt="Sketch-AI">
+                                        <img class="img-fluid" src="img/sketch-ai.svg" alt="Sketch-AI">
                                     </a>
                                 </div>
                                 <p class="text-center">Sketch-AI</p>
                             </div>
-                            <div class="col-md-6 portfolio-item fifth">
+                            <div class="col-md-6 portfolio-item cat-nlp portfolio-extra" style="display:none;">
                                 <div class="position-relative overflow-hidden">
                                     <a href="https://github.com/ouzema/Sentiment-Analysis" target="_blank">
-                                        <img class="img-fluid" src="img/sent.svg" alt="Sentiment Analysis">
+                                        <img class="img-fluid" src="img/sentiment.svg" alt="Sentiment Analysis">
                                     </a>
                                 </div>
                                 <p class="text-center">Sentiment Analysis</p>
                             </div>
+                        </div>
+
+                        <div class="text-center mt-3">
+                            <button class="btn btn-secondary" id="showMoreProjects">
+                                <i class="fas fa-chevron-down me-2"></i>Show More Projects
+                            </button>
                         </div>
                     </section>
 
@@ -419,9 +445,9 @@
                                         </div>
                                     </div>
                                     <div class="mt-4">
-                                        <a href="https://drive.google.com/file/d/1U11JlWkDvAoRlbM-Jhmy8xSaRQ6r_T9j/view?usp=sharing" target="_blank" class="btn btn-primary">
-                                            <i class="fas fa-download"></i> Download CV
-                                        </a>
+                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#resumeModal">
+                                            <i class="fas fa-eye"></i> View CV
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -472,7 +498,7 @@
                         <div class="p-4 p-lg-5">
                             <div class="row">
                                 <div class="col-lg-6 mb-4 mb-lg-0">
-                                    <h4 class="text-light mb-3" style="font-size:1.125rem;">Oussema ARIBI</h4>
+                                    <h4 class="mb-3" style="font-size:1.125rem;">Oussema ARIBI</h4>
                                     <p class="text-light-50 mb-3" style="font-size:0.875rem;">Data Scientist and AI/ML Engineer building innovative solutions with cutting-edge technologies.</p>
                                     <div class="d-flex social-links">
                                         <a class="social-btn mx-1" href="https://github.com/ouzema" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
@@ -480,7 +506,7 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-3 col-md-6 mb-3 mb-md-0">
-                                    <h5 class="text-light mb-3" style="font-size:0.9375rem;">Quick Links</h5>
+                                    <h5 class="mb-3" style="font-size:0.9375rem;">Quick Links</h5>
                                     <ul class="footer-links">
                                         <li><a href="#aboutme">About</a></li>
                                         <li><a href="#skills">Skills</a></li>
@@ -490,19 +516,47 @@
                                     </ul>
                                 </div>
                                 <div class="col-lg-3 col-md-6">
-                                    <h5 class="text-light mb-3" style="font-size:0.9375rem;">Legal</h5>
+                                    <h5 class="mb-3" style="font-size:0.9375rem;">Legal</h5>
                                     <ul class="footer-links">
                                         <li><a href="privacy.html">Privacy Policy</a></li>
                                         <li><a href="mailto:ouzema@yahoo.com">Contact</a></li>
                                     </ul>
                                 </div>
                             </div>
-                            <div class="footer-bottom text-center mt-4 pt-3 border-top border-dark">
-                                <p class="m-0 text-light-50" style="font-size:0.8125rem;">&copy; 2026 Designed by <a href="#" class="footer-name">Oussema ARIBI</a></p>
+                            <div class="footer-bottom text-center mt-4 pt-3">
+                                <p class="m-0" style="font-size:0.8125rem;">&copy; 2026 Designed by <a href="#" class="footer-name">Oussema ARIBI</a></p>
                             </div>
                         </div>
                     </footer>
 
+                </div>
+            </div>
+        </div>
+
+        <!-- Resume Modal -->
+        <div class="modal fade" id="resumeModal" tabindex="-1" aria-labelledby="resumeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="resumeModalLabel">Resume — Oussema ARIBI</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body p-0">
+                        <iframe data-src="docs/resume.pdf" class="resume-iframe" title="Resume PDF"></iframe>
+                        <div class="resume-mobile-fallback">
+                            <i class="fas fa-file-pdf"></i>
+                            <p>PDF preview isn't supported on mobile browsers.<br>Tap below to download or open the resume.</p>
+                            <a href="docs/resume.pdf" target="_blank" class="btn btn-primary">
+                                <i class="fas fa-external-link-alt"></i> Open Resume
+                            </a>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="docs/resume.pdf" download="Oussema_ARIBI_Resume.pdf" class="btn btn-primary">
+                            <i class="fas fa-download"></i> Download PDF
+                        </a>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
                 </div>
             </div>
         </div>
