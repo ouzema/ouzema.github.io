@@ -1,0 +1,301 @@
+/* ── Lyle Chat Widget ── */
+
+/* Toggle button */
+#lyle-toggle {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9998;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: none;
+  background: var(--primary, #2563EB);
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37, 99, 235, 0.4);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease, background 0.3s ease;
+}
+#lyle-toggle:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 28px rgba(37, 99, 235, 0.5);
+}
+#lyle-toggle.open {
+  transform: scale(0);
+  pointer-events: none;
+}
+
+/* Chat panel */
+#lyle-chat {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  width: 380px;
+  max-height: 560px;
+  border-radius: 16px;
+  background: var(--bg-card, #fff);
+  border: 1px solid var(--border, #E4E4E7);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(20px) scale(0.95);
+  pointer-events: none;
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+#lyle-chat.open {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+/* Header */
+#lyle-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  background: var(--primary, #2563EB);
+  color: #fff;
+  flex-shrink: 0;
+}
+#lyle-header-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+#lyle-header-info strong {
+  display: block;
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+#lyle-header-info span {
+  display: block;
+  font-size: 0.6875rem;
+  opacity: 0.8;
+}
+#lyle-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1rem;
+}
+#lyle-close {
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+}
+#lyle-close:hover {
+  background: rgba(255,255,255,0.15);
+}
+
+/* Messages area */
+#lyle-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 200px;
+  max-height: 340px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border, #E4E4E7) transparent;
+}
+#lyle-messages::-webkit-scrollbar { width: 4px; }
+#lyle-messages::-webkit-scrollbar-thumb { background: var(--border, #E4E4E7); border-radius: 4px; }
+
+/* Message bubbles */
+.lyle-msg {
+  display: flex;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.lyle-msg.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.lyle-bot { justify-content: flex-start; }
+.lyle-user { justify-content: flex-end; }
+
+.lyle-bubble {
+  max-width: 85%;
+  padding: 10px 14px;
+  border-radius: 14px;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  word-break: break-word;
+}
+.lyle-bot .lyle-bubble {
+  background: var(--bg, #F4F4F5);
+  color: var(--text, #18181B);
+  border-bottom-left-radius: 4px;
+}
+.lyle-user .lyle-bubble {
+  background: var(--primary, #2563EB);
+  color: #fff;
+  border-bottom-right-radius: 4px;
+}
+.lyle-bubble strong {
+  font-weight: 600;
+}
+
+/* Typing indicator */
+.lyle-typing {
+  display: flex;
+  gap: 4px;
+  padding: 4px 0;
+  align-items: center;
+}
+.lyle-typing span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--text-tertiary, #A1A1AA);
+  animation: lyle-bounce 1.2s infinite ease-in-out;
+}
+.lyle-typing span:nth-child(2) { animation-delay: 0.15s; }
+.lyle-typing span:nth-child(3) { animation-delay: 0.3s; }
+@keyframes lyle-bounce {
+  0%, 60%, 100% { transform: translateY(0); }
+  30% { transform: translateY(-6px); }
+}
+
+/* Suggestions */
+#lyle-suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 0 16px 12px;
+  flex-shrink: 0;
+}
+.lyle-suggestion {
+  padding: 6px 12px;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  border-radius: 999px;
+  border: 1px solid var(--border, #E4E4E7);
+  background: var(--bg-card, #fff);
+  color: var(--text, #18181B);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+.lyle-suggestion:hover {
+  border-color: var(--primary, #2563EB);
+  color: var(--primary, #2563EB);
+  background: rgba(37, 99, 235, 0.05);
+}
+
+/* Input */
+#lyle-input-form {
+  display: flex;
+  align-items: center;
+  padding: 10px 12px;
+  border-top: 1px solid var(--border, #E4E4E7);
+  gap: 8px;
+  flex-shrink: 0;
+  background: var(--bg-card, #fff);
+}
+#lyle-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 0.8125rem;
+  font-family: inherit;
+  color: var(--text, #18181B);
+  padding: 8px 0;
+  min-height: 44px;
+}
+#lyle-input::placeholder {
+  color: var(--text-tertiary, #A1A1AA);
+}
+#lyle-send {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: var(--primary, #2563EB);
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+#lyle-send:hover {
+  transform: scale(1.08);
+}
+
+/* ── Mobile responsive ── */
+@media (max-width: 767.98px) {
+  #lyle-toggle {
+    bottom: 16px;
+    right: 16px;
+    width: 50px;
+    height: 50px;
+  }
+  #lyle-chat {
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    max-height: 100dvh;
+    border-radius: 0;
+    border: none;
+  }
+  #lyle-chat.open {
+    border-radius: 16px 16px 0 0;
+    max-height: 85dvh;
+  }
+  #lyle-messages {
+    max-height: none;
+    flex: 1;
+  }
+  #lyle-input {
+    font-size: 1rem;
+  }
+}
+
+/* ── Dark mode ── */
+body.dark-mode #lyle-chat {
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+body.dark-mode .lyle-bot .lyle-bubble {
+  background: var(--neutral-700, #3F3F46);
+}
+body.dark-mode #lyle-input-form {
+  background: var(--bg-card, #18181B);
+}
+
+/* ── Adjust back-to-top to not overlap ── */
+.back-to-top {
+  bottom: 90px !important;
+}
+@media (max-width: 767.98px) {
+  .back-to-top {
+    bottom: 80px !important;
+    right: 16px;
+  }
+}
